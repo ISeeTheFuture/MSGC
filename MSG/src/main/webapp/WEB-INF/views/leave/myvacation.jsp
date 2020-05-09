@@ -249,7 +249,7 @@
 					//폼 속성 set attribute
 					form.name = 'newForm';
 					form.method = 'get';
-					form.action = '/msg/leave/select.do';
+					form.action = '/leave/select.do';
 					form.target = '_self';
 					//input 태그 생성
 					var input1 = document.createElement('input');

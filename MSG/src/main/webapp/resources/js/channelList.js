@@ -1,3 +1,7 @@
+function getContextPath() { 
+//	return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+	return '${pageContext.request.contextPath}';
+}
 hdjq(document).ready(function(){
 	var repeatChList = "";
 	hdjq("#hamburger").change(function(){
@@ -15,7 +19,7 @@ hdjq(document).ready(function(){
 function channelListFunction() {
 	hdjq.ajax({
 		type : "GET",
-		url : "/msg/chat/headerChList.do",
+		url : "/chat/headerChList.do",
 		dataType: "json",
 		success : function(data) {
 			hdjq("#channelList").html('');
@@ -55,7 +59,7 @@ function goChannel(obj){
 	//폼 속성 set attribute
 	form.name = 'newForm';
 	form.method = 'POST';
-	form.action = '/msg/chat/channel.do';
+	form.action = '/chat/channel.do';
 	form.target = '_self';
 	//input 태그 생성
 	var input1 = document.createElement('input');

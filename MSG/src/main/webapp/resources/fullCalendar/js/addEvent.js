@@ -121,7 +121,7 @@ var newEvent = function (start, end, eventType) {
         //새로운 일정 저장
         $.ajax({
             type: "post",
-            url: getContextPath()+"/sched/insertSched",
+            url: "/sched/insertSched",
             data: {
 //            	scheCode : '',
             	scheCate : eventData.type,

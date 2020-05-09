@@ -1,6 +1,9 @@
 var lastID = 0;
 var toId = "";
-
+function getContextPath() { 
+//	return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+	return '${pageContext.request.contextPath}';
+}
 
 hdjq(function(){
     hdjq(".dmBar").hide();
@@ -46,7 +49,7 @@ hdjq(document).ready(function(){
 function getAllUnreadDm() {
 	hdjq.ajax({
 		type : "Post",
-		url : "/msg/chat/getAllUnreadDm.do",
+		url : "/chat/getAllUnreadDm.do",
 		data:{
 			fromId: fromId
 		},
@@ -58,7 +61,7 @@ function getAllUnreadDm() {
 function dmListFunction() {
 	hdjq.ajax({
 		type : "GET",
-		url : "/msg/chat/headerDmList.do",
+		url : "/chat/headerDmList.do",
 		dataType: "json",
 		success : function(data) {
 			hdjq("#dmList").html('');
@@ -72,7 +75,7 @@ function searchMember() {
 	var dmKeyword = hdjq("input[name=dmKeyword").val();
 	hdjq.ajax({
 		type : "GET",
-		url : "/msg/chat/headerDmList.do",
+		url : "/chat/headerDmList.do",
 		data:{
 			keyword: dmKeyword,
 		},
@@ -92,7 +95,7 @@ function addList(empImage, empName, jobName, toId, unread) {
 		hdjq("#dmList").append(
 							'<li>'+
 							'<a href="#" onclick="dmWindow('+"'"+toId+"', '"+empName+"'"+');">'+
-							'<img src="/msg/resources/upload/empImg/'+ empImage+'" class="member-img">'+
+							'<img src="/resources/upload/empImg/'+ empImage+'" class="member-img">'+
 							'<span class="headerlistname">'+empName+' '+
 							jobName+
 							'</span>'+
@@ -101,7 +104,7 @@ function addList(empImage, empName, jobName, toId, unread) {
 		hdjq("#dmList").append(
 							 '<li>'+
 							 '<a href="#" onclick="dmWindow('+"'"+toId+"', '"+empName+"'"+');">'+
-							 '<img src="/msg/resources/upload/empImg/'+ empImage+'" class="member-img">'+
+							 '<img src="/resources/upload/empImg/'+ empImage+'" class="member-img">'+
 							 '<span class="headerlistname">'+empName+' '+
 							 jobName+
 							 '</span>'+
@@ -131,7 +134,7 @@ function chatListFunction(type, toId, fromId) {
 	hdjq.ajax({
 		cache: false,
 		type : "POST",
-		url : "/msg/chat/msgList.do",
+		url : "/chat/msgList.do",
 		data : {
 			fromId : encodeURIComponent(fromId),
 			toId : encodeURIComponent(toId),
@@ -189,7 +192,7 @@ function addChat(toId, msgContent, msgTime, hrDate, hideDate, empImage, fromId) 
 	if(toId == fromId ){
 		hdjq("#dm-container").append(
 									'<div id="from-dm">'
-					                +'<img src="/msg/resources/upload/empImg/'+empImage+'" id="from-dm-img" class="member-img">'
+					                +'<img src="/resources/upload/empImg/'+empImage+'" id="from-dm-img" class="member-img">'
 					                +'<div id="from-dm-content" class="dm-content">'+msgContent
 					                +'<span id="from-dm-time" class="dm-time">'
 					                +msgTime
@@ -202,7 +205,7 @@ function addChat(toId, msgContent, msgTime, hrDate, hideDate, empImage, fromId) 
 	}else{
 		hdjq("#dm-container").append(
 									'<div id="to-dm">'
-						            +'<img src="/msg/resources/upload/empImg/'+empImage+'" id="to-dm-img" class="member-img">'
+						            +'<img src="/resources/upload/empImg/'+empImage+'" id="to-dm-img" class="member-img">'
 						            +'<div id="to-dm-content" class="dm-content">'+msgContent
 						            +'<span id="to-dm-time" class="dm-time">'
 						            +msgTime
@@ -222,7 +225,7 @@ function submitFunction() {
 	var msgContent = hdjq("#msgContent").val();
 	hdjq.ajax({
 		type : "POST",
-		url : "/msg/chat/msgInsert.do",
+		url : "/chat/msgInsert.do",
 		data : {
 			fromId : encodeURIComponent(fromId),
 			toId : encodeURIComponent(toId),

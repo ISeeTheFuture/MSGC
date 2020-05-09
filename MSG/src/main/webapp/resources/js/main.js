@@ -1,6 +1,7 @@
 //contextPath 구하기 S
 function getContextPath() { 
-	return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+//	return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+	return '${pageContext.request.contextPath}';
 }
 function formatDate(date) {
        return date.getDate();
@@ -33,7 +34,7 @@ $(document).ready(function(){
 	}
 	
 	$.ajax({
-		url : getContextPath()+"/sched/mainSchedList",
+		url : "/sched/mainSchedList",
 		data : {empNo : empNo,
 				deptName : empDept},
 		type : "get",

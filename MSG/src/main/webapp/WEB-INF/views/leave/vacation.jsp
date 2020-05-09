@@ -304,7 +304,7 @@
 					//폼 속성 set attribute
 					form.name = 'newForm';
 					form.method = 'get';
-					form.action = '/msg/leave/update.do';
+					form.action = '/leave/update.do';
 					form.target = '_self';
 					//input 태그 생성
 					var input1 = document.createElement('input');
@@ -344,7 +344,7 @@
 			empNo = $(btn).val();
 
 			$.ajax({
-				url : "/msg/leave/modal",
+				url : "/leave/modal",
 				type : "GET",
 				data : {
 					empNo : btnNo
@@ -364,7 +364,7 @@
 			});
 
 			$.ajax({
-				url : "/msg/leave/modalSearch",
+				url : "/leave/modalSearch",
 				type : "GET",
 				success : function(data) {
 					var str = [];
@@ -417,7 +417,7 @@
 			console.log("vctnAmt", vctnAmt);
 
 			$.ajax({
-				url : "/msg/leave/update.do",
+				url : "/leave/update.do",
 				type : "POST",
 				data : {
 					empNo : empNo,

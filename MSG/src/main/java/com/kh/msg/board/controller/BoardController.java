@@ -116,7 +116,8 @@ public class BoardController {
 			boardCookieVal = boardCookieVal + "|" + boardNo + "|"; 
 			Cookie boardCookie = new Cookie("boardCookie", boardCookieVal);
 			boardCookie.setMaxAge(365*24*60*60);//영속쿠키
-			boardCookie.setPath(request.getContextPath()+"/board");
+//			boardCookie.setPath(request.getContextPath()+"/board");
+			boardCookie.setPath("/board");
 			response.addCookie(boardCookie);
 			//조회수증가
 			board.setNo(boardNo);

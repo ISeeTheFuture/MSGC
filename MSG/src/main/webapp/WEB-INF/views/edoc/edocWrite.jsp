@@ -46,7 +46,7 @@
 	jq(function() {
 		jq.ajax({
 			type : "get",
-			url : "/msg/edoc/jstree.do",
+			url : "/edoc/jstree.do",
 			dataType : "json",
 			success : function(response) {
 				jq("#ajax_jstree").on(
@@ -518,7 +518,7 @@
 		var jsTreeEmpNo = <%=oc.getEmpNo()%>;
 		$.ajax({
 			type : "get",
-			url : "/msg/edoc/jstreeMem.do",
+			url : "/edoc/jstreeMem.do",
 			data : {
 				id : jsTreeEmpNo
 			},
@@ -554,7 +554,7 @@
 						function() {
 							$.ajax({
 										type : "get",
-										url : "/msg/edoc/jstreeMem.do",
+										url : "/edoc/jstreeMem.do",
 										data : {
 											id : selectedTree
 										},
@@ -633,7 +633,7 @@
 						function() {
 							$.ajax({
 										type : "get",
-										url : "/msg/edoc/jstreeMem.do",
+										url : "/edoc/jstreeMem.do",
 										data : {
 											id : selectedTree
 										},
@@ -846,7 +846,7 @@
 
 			$.ajax({
 				type : "post",
-				url : "/msg/edoc/write.do",
+				url : "/edoc/write.do",
 				data : formData,
 				enctype : 'multipart/form-data', // ajax로 파일 전송을 하기 위해 필수
 				processData : false, // ajax로 파일 전송을 하기 위해 필수
@@ -873,7 +873,7 @@
 		jq(document).ready(
 				function() {
 					jq.ajax({
-						url : "/msg/edoc/nameSrch.do",
+						url : "/edoc/nameSrch.do",
 						type : "GET",
 						success : function(data) {
 							var str = [];

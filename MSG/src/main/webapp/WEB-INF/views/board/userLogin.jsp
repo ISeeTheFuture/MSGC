@@ -28,7 +28,7 @@
 	            	<li>
 						 <i class="fas fa-circle" style="font-size:15px; color:green;  margin-right:5px;"></i>	
 						 <a href="#" onclick=""> 
-						 <img src="'/msg/resources/image/'${m.empImage}" class="member-img">
+						 <img src="'/resources/image/'${m.empImage}" class="member-img">
 						 <span class="headerlistname">${m.empName } ${m.jobCd }</span>
 				 	</li>
 	            </c:if>
@@ -36,7 +36,7 @@
 	            	<li>
 						 <i class="fas fa-circle" style="font-size:15px; color:gray;  margin-right:5px;"></i>	
 						 <a href="#" onclick=""> 
-						 <img src="'/msg/resources/image/'${m.empImage}" class="member-img">
+						 <img src="'/resources/image/'${m.empImage}" class="member-img">
 						 <span class="headerlistname">${m.empName } ${m.jobCd }</span>
 				 	</li>
 	            </c:if>

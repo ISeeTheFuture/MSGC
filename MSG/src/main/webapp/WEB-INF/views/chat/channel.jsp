@@ -80,7 +80,7 @@
 					<div id="ch-member-list">
 						<table id="ch-modify-member-table">
 							<tr>
-                          		<td><img src="/msg/resources/upload/empImg/${memberLoggedIn.empImage }" id="ch-member-list-img" class="ch-member-img"></td>
+                          		<td><img src="/resources/upload/empImg/${memberLoggedIn.empImage }" id="ch-member-list-img" class="ch-member-img"></td>
                            		<td>${memberLoggedIn.empName }</td>
                            		<td>${memberLoggedIn.deptName }</td>
                            		<td>${memberLoggedIn.jobName }</td>

@@ -1,5 +1,11 @@
 var chjq = jQuery.noConflict();
 var arrModify = new Array();
+
+function getContextPath() { 
+//	return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+	return '${pageContext.request.contextPath}';
+}
+
 chjq(document).ready(function(){
 	arrModify.push(empNo);
 	
@@ -38,7 +44,7 @@ chjq(document).ready(function(){
 function presentList(){
 	chjq.ajax({
 		type:"GET",
-		url:"/msg/chat/modifyChannel.do",
+		url: "/chat/modifyChannel.do",
 		data:{
 			chNo: chNo
 		},
@@ -56,7 +62,7 @@ function searchMemberModify(){
 	var chModifySearchType = chjq("input[name=chModifySearchType]:checked").val();
 	chjq.ajax({
 		type:"GET",
-		url:"/msg/chat/searchListCh.do",
+		url: "/chat/searchListCh.do",
 		data:{
 			keyword: chModifyKeyword,
 			searchType: chModifySearchType
@@ -78,7 +84,7 @@ function addModifyMember(empImage, empName, deptName, jobName, empNo){
 	var regEmpNo = chjq("input[name=regEmpNo]").val();
 	if(regEmpNo == empNo){
 		chjq("#ch-modify-member-table").append('<tr>'	
-	            +'<td><img src="/msg/resources/upload/empImg/'+empImage+'" id="ch-member-list-img" class="ch-member-img"></td>'
+	            +'<td><img src="/resources/upload/empImg/'+empImage+'" id="ch-member-list-img" class="ch-member-img"></td>'
 	            +'<td>'+empName+'</td>'
 	            +'<td>'+deptName+'</td>'
 	            +'<td>'+jobName+'</td>'
@@ -88,13 +94,13 @@ function addModifyMember(empImage, empName, deptName, jobName, empNo){
 	}else{
 		
 		chjq("#ch-modify-member-table").append('<tr>'	
-		        +'<td><img src="/msg/resources/upload/empImg/'+empImage+'" id="ch-member-list-img" class="ch-member-img"></td>'
+		        +'<td><img src="/resources/upload/empImg/'+empImage+'" id="ch-member-list-img" class="ch-member-img"></td>'
 		        +'<td>'+empName+'</td>'
 		        +'<td>'+deptName+'</td>'
 		        +'<td>'+jobName+'</td>'
 		        +'<td class="delNo">'+empNo+'</td>'
 		        +'<input type="hidden" name="empNo" value="'+empNo+'">'
-		        +'<td><a href="#"><img src="/msg/resources/image/X-icon.png" alt="" class="x-icon" id="" onclick="deleteModifyMember(this)"></a></td>'
+		        +'<td><a href="#"><img src="/resources/image/X-icon.png" alt="" class="x-icon" id="" onclick="deleteModifyMember(this)"></a></td>'
 		        +'</tr>');
 	}
 	arrModify.push(empNo);
@@ -110,13 +116,13 @@ function deleteModifyMember(obj){
 function deleteChannel(){
 	chjq.ajax({
 		type:"Post",
-		url:"/msg/chat/deleteChannel.do",
+		url: "/chat/deleteChannel.do",
 		data:{
 			chNo: chNo
 		},
 		success : function(data) {
 			alert("채널이 삭제되었습니다.");
-			location.href="/msg/chat/main.do";
+			location.href="/main.do";
 		}
 	});
 }

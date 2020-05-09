@@ -156,7 +156,7 @@
         //폼 속성 set attribute
         form.name = 'newForm';
         form.method = 'get';
-        form.action = '/msg/edoc/list.do';
+        form.action = '/edoc/list.do';
         form.target = '_self';        
         //input 태그 생성
         var input1 = document.createElement('input');

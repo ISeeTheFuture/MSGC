@@ -120,7 +120,7 @@
             <ul class="secnav" style="margin-bottom: 4px;">
 	            <p id="channelListTitle">Channel
 	           	<a href="#">
-	            	<img src="/msg/resources/image/plus-icon.png" id="plus-icon" style="width:10px; heigth:10px;">
+	            	<img src="/resources/image/plus-icon.png" id="plus-icon" style="width:10px; heigth:10px;">
 	           	</a>
 	            </p>
 			</ul>
@@ -185,7 +185,7 @@
                         <div id="ch-member-list">
                             <table id="ch-member-table">
                             	<tr>
-                            		<td><img src="/msg/resources/upload/empImg/${memberLoggedIn.empImage }" id="ch-member-list-img" class="ch-member-img"></td>
+                            		<td><img src="/resources/upload/empImg/${memberLoggedIn.empImage }" id="ch-member-list-img" class="ch-member-img"></td>
                             		<td>${memberLoggedIn.empName }</td>
                             		<td>${memberLoggedIn.deptName }</td>
                             		<td>${memberLoggedIn.jobName }</td>
