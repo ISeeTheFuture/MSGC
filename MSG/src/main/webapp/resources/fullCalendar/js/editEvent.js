@@ -107,7 +107,7 @@ var editEvent = function (event, element, view) {
         //일정 업데이트
         $.ajax({
             type: "post",
-            url: getContextPath()+"/sched/updateSched",
+            url: "/sched/updateSched",
             data: {
             	scheCode : event._id,
         		scheCate : event.type,
@@ -144,7 +144,7 @@ var editEvent = function (event, element, view) {
         //삭제시
         $.ajax({
             type: "delete",
-            url: getContextPath()+"/sched/deleteSched/"+event._id,
+            url: "/sched/deleteSched/"+event._id,
             data: {
                 
             },

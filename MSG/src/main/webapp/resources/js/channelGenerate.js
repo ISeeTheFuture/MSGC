@@ -1,4 +1,9 @@
-var arr = new Array(); 
+var arr = new Array();
+//function getContextPath() { 
+////	return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+//	return '${pageContext.request.contextPath}';
+//}
+
 hdjq(document).ready(function(){
 	arr.push(empNo);
 	
@@ -35,7 +40,7 @@ function searchMemberCh(){
 	var chSearchType = hdjq("input[name=chSearchType]:checked").val();
 	hdjq.ajax({
 		type:"GET",
-		url:"/msg/chat/searchListCh.do",
+		url: "/chat/searchListCh.do",
 		data:{
 			keyword: chKeyword,
 			searchType: chSearchType
@@ -56,13 +61,13 @@ function addChMember(empImage, empName, deptName, jobName, empNo){
 			return false;
 	}
 	hdjq("#ch-member-table").append('<tr>'	
-            +'<td><img src="/msg/resources/upload/empImg/'+empImage+'" id="ch-member-list-img" class="ch-member-img"></td>'
+            +'<td><img src="/resources/upload/empImg/'+empImage+'" id="ch-member-list-img" class="ch-member-img"></td>'
             +'<td>'+empName+'</td>'
             +'<td>'+deptName+'</td>'
             +'<td>'+jobName+'</td>'
             +'<td class="delNo">'+empNo+'</td>'
             +'<input type="hidden" name="empNo" value="'+empNo+'">'
-            +'<td><a href="#"><img src="/msg/resources/image/X-icon.png" class="x-icon" onclick="deleteMember(this)"></td></a>'
+            +'<td><a href="#"><img src="/resources/image/X-icon.png" class="x-icon" onclick="deleteMember(this)"></td></a>'
             +'</tr>');
 	arr.push(empNo);
 }

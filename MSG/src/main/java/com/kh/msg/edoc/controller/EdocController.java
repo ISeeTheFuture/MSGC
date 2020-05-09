@@ -141,7 +141,7 @@ public class EdocController {
 		if (pageNo == 1) {
 			pageBar += "<a href=\"#\" class=\"arrow\">&laquo;</a>";
 		} else {
-			pageBar += "<a href='/msg/edoc/list.do?cPage=" + (pageNo - 1) + "&srchWord=" + srchWord + "&srchType="
+			pageBar += "<a href='/edoc/list.do?cPage=" + (pageNo - 1) + "&srchWord=" + srchWord + "&srchType="
 					+ srchType +"&arrayDocuCheck="+docuType+"'>&laquo;</a>";
 		}
 
@@ -149,7 +149,7 @@ public class EdocController {
 			if (pageNo == cPage) {
 				pageBar += "<a class='active'>" + pageNo + "</a>";
 			} else {
-				pageBar += "<a href='/msg/edoc/list.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType="
+				pageBar += "<a href='/edoc/list.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType="
 						+ srchType+"&arrayDocuCheck="+docuType+"'>" + pageNo + "</a>";
 			}
 			pageNo++;
@@ -158,7 +158,7 @@ public class EdocController {
 		if (pageNo > totalPage) {
 			pageBar += "<a href=\"#\" class=\"arrow\">&raquo;</a>";
 		} else {
-			pageBar += "<a href='/msg/edoc/list.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType=" + srchType
+			pageBar += "<a href='/edoc/list.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType=" + srchType
 					+"&arrayDocuCheck="+docuType+"'>&raquo;</a>";
 		}
 		;
@@ -203,7 +203,7 @@ public class EdocController {
 		if (pageNo == 1) {
 			pageBar += "<a href=\"#\" class=\"arrow\">&laquo;</a>";
 		} else {
-			pageBar += "<a href='/msg/edoc/srch.do?cPage=" + (pageNo - 1) + "&srchWord=" + srchWord + "&srchType="
+			pageBar += "<a href='/edoc/srch.do?cPage=" + (pageNo - 1) + "&srchWord=" + srchWord + "&srchType="
 					+ srchType + "'>&laquo;</a>";
 		}
 
@@ -211,7 +211,7 @@ public class EdocController {
 			if (pageNo == cPage) {
 				pageBar += "<a class='active'>" + pageNo + "</a>";
 			} else {
-				pageBar += "<a href='/msg/edoc/srch.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType="
+				pageBar += "<a href='/edoc/srch.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType="
 						+ srchType + "'>" + pageNo + "</a>";
 			}
 			pageNo++;
@@ -220,7 +220,7 @@ public class EdocController {
 		if (pageNo > totalPage) {
 			pageBar += "<a href=\"#\" class=\"arrow\">&raquo;</a>";
 		} else {
-			pageBar += "<a href='/msg/edoc/srch.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType=" + srchType
+			pageBar += "<a href='/edoc/srch.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType=" + srchType
 					+ "'>&raquo;</a>";
 		}
 		;
@@ -446,8 +446,12 @@ public class EdocController {
 	public void getHiddenAddr(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		
+		String frontUrl = request.getRequestURL().substring(0, request.getRequestURL().indexOf("/", 7));
+		
 		response.setContentType("application/pdf");
-		String url = "http://127.0.0.1:9090"+request.getContextPath()+"/resources/upload/edocPdf/"; // 앞에 주소가 반드시 필요하네 ㅡㅡ
+//		String url = frontUrl+request.getContextPath()+"/resources/upload/edocPdf/"; // 앞에 주소가 반드시 필요하네 ㅡㅡ
+		String url = frontUrl+"/resources/upload/edocPdf/"; // 앞에 주소가 반드시 필요하네 ㅡㅡ
+		
 //		String url = request.getServletContext().getRealPath("/resources/upload/edocPdf/"); // 주소는 불러오는데, 정작 파일을 못가져옴. 프로토콜 에러
 		String attachId = request.getParameter("attachId"); // 일단 파일명은 jsp에서 받아옴. 여기서 attchId를 받아와서 파일명을 아예 숨기자.
 		EdocAtt edocAtt = edocService.selectPdf(attachId);
@@ -722,6 +726,7 @@ public class EdocController {
 
 		OutputStream out = new FileOutputStream(new File(optFolder + renamedFilename));
 		PdfOptions options = PdfOptions.create().fontEncoding("Identity-H"); // Identity-H 인코딩 설정안하거나 UTF-8 등으로 설정하면 한글 안보임
+//		PdfOptions options = PdfOptions.create();
 		PdfConverter.getInstance().convert(doc, out, options);
 		
 		EdocAtt edocAtt = new EdocAtt();

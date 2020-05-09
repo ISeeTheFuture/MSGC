@@ -75,7 +75,7 @@ button[type=button]>p{width: 580px; color:#333333; font-size: 30px;}
     <div class="logoDiv">
     <form id="loginFrm" method="POST" action="${pageContext.request.contextPath}/member/login.do">
         <div>
-	    	<img class="loginLogo" style="right: 0px; width: 190px; height: 75px;" src="/msg/resources/image/msgMain.png">
+	    	<img class="loginLogo" style="right: 0px; width: 190px; height: 75px;" src="${pageContext.request.contextPath}/resources/image/msgMain.png">
             <p class="kor login-label">아이디</p>
             <input type="text" name="userId" id="userId"  class="kor"
                    placeholder="아이디를 입력하세요"/>

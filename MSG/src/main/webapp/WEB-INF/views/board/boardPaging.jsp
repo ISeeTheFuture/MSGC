@@ -29,7 +29,7 @@
 <script>
 	function selChange() {
 		var sel = document.getElementById('cntPerPage').value;
-		location.href="/msg/board/boardList.do?nowPage=${paging.nowPage}&cntPerPage="+sel;
+		location.href="/board/boardList.do?nowPage=${paging.nowPage}&cntPerPage="+sel;
 	}
 </script>
 <body>

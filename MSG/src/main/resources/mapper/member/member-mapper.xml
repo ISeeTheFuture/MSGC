@@ -222,8 +222,7 @@
 		call PROC_INSERT_LATE_TB(#{empNo})
 	}
 	</insert>
-	
-	
+
 	<update id="updateEmp">
 		UPDATE EMP_TB 
 		SET 

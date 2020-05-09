@@ -67,7 +67,7 @@ $('#timepicker-end-car').datepicker({
 			
 			// ajax로 예약시간 도중 해당 값을 가지고 있는 차량 객체만 출력 라디오 선택 가능하게 바꾸기
 			$.ajax({
-				url : getContextPath()+"/res/carListEnd",
+				url : "/res/carListEnd",
 				data : {resUseDate : transformForDB(use),
 						resReturnDate : transformForDB(retrn)},
 				type : "get",
@@ -337,7 +337,7 @@ $('#timepicker-startend').datepicker({
 	    
 	    //ajax로 입력시간값에 해당하는 예약내역 출력하기
 		$.ajax({
-			url : getContextPath()+"/res/resListByDate",
+			url : "/res/resListByDate",
 			data : {srchFrom : startDate,
 					srchTo : endDate},
 			type : "get",

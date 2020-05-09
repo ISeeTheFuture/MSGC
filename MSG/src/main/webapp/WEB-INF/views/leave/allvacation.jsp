@@ -334,7 +334,7 @@
         //폼 속성 set attribute
         form.name = 'newForm';
         form.method = 'get';
-        form.action = '/msg/leave/list.do';
+        form.action = '/leave/list.do';
         form.target = '_self';        
         //input 태그 생성
         var input1 = document.createElement('input');

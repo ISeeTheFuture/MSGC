@@ -3,7 +3,8 @@ hdjq(function(){
     hdjq("nav.primnav .userinfo idSection idSection").hide();
     
     function getContextPath() { 
-    	return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+//    	return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+    	return '${pageContext.request.contextPath}';
     }
 })
 

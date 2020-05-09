@@ -1,7 +1,8 @@
 //contextPath 구하기
-function getContextPath() { 
-	return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
-}
+//function getContextPath() { 
+////	return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+//	return '${pageContext.request.contextPath}';
+//}
 
 //db의 y/n를 boolean으로 바꿔주기
 function charToBoolean(a){
@@ -184,7 +185,7 @@ var calendar = $('#calendar').fullCalendar({
 	
 	$.ajax({
       type: "get",
-      url: getContextPath()+"/sched/calendar.do",
+      url: "/sched/calendar.do",
       data: {
         // 실제 사용시, 날짜를 전달해 일정기간 데이터만 받아오기를 권장
     	 start: start.format(),
@@ -256,13 +257,13 @@ var calendar = $('#calendar').fullCalendar({
     //리사이즈한 일정 업데이트
     $.ajax({
       type: "get",
-      url: getContextPath()+"/sched/selectSched/"+event._id,
+      url: "/sched/selectSched/"+event._id,
       success: function (data) {
         alert('수정: ' + newDates.startDate + ' ~ ' + newDates.endDate);
         console.log(newDates.startDate.length);
 	        $.ajax({
 	        	type: "post",
-	        	url : getContextPath()+"/sched/resizeSched",
+	        	url : "/sched/resizeSched",
 	        	data : {
 	        		resizeStart : newDates.startDate,
 	        		resizeEnd : newDates.endDate,
@@ -306,13 +307,13 @@ var calendar = $('#calendar').fullCalendar({
     //드롭한 일정 업데이트
     $.ajax({
         type: "get",
-        url: getContextPath()+"/sched/selectSched/"+event._id,
+        url: "/sched/selectSched/"+event._id,
         success: function (data) {
           alert('수정: ' + newDates.startDate + ' ~ ' + newDates.endDate);
           console.log(newDates.startDate.length);
   	        $.ajax({
   	        	type: "post",
-  	        	url : getContextPath()+"/sched/resizeSched",
+  	        	url : "/sched/resizeSched",
   	        	data : {
   	        		resizeStart : newDates.startDate,
   	        		resizeEnd : newDates.endDate,

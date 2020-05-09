@@ -1,6 +1,7 @@
 //contextPath 구하기
 function getContextPath() { 
-	return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+//	return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+	return '${pageContext.request.contextPath}';
 }
 
 function test(){
@@ -27,7 +28,7 @@ function test(){
 				              				console.log("삭제 직전");
 				              				$.ajax({
 				              					type:"delete",
-				              					url:getContextPath()+"/res/delRes/"+$(this).children("td:eq(1)").text()+"/"+$(this).children(".displayNone").text(),
+				              					url: "/res/delRes/"+$(this).children("td:eq(1)").text()+"/"+$(this).children(".displayNone").text(),
 //				              					data : {resCode : $(this).children("td:eq(1)").text(),
 //				              						    resCate : $(this).children(".displayNone").text()},
 				              					dataType:"json",
@@ -177,7 +178,7 @@ function test(){
         			if(delConfirm == "삭제"){
         				
         				$.ajax({
-        					url:getContextPath()+"/res/delCar/"+carCode,
+        					url: "/res/delCar/"+carCode,
         					dataType:"json",
         					type:"delete",
         					success: data =>{

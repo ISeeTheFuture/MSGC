@@ -78,7 +78,7 @@ public class LeaveController {
 		if (pageNo == 1) {
 			pageBar += "<a href=\"#\" class=\"arrow\">&laquo;</a>";
 		} else {
-			pageBar += "<a href='/msg/leave/list.do?cPage=" + (pageNo - 1) + "&srchWord=" + srchWord + "&srchType="
+			pageBar += "<a href='/leave/list.do?cPage=" + (pageNo - 1) + "&srchWord=" + srchWord + "&srchType="
 					+ srchType + "'>&laquo;</a>";
 		}
 
@@ -86,7 +86,7 @@ public class LeaveController {
 			if (pageNo == cPage) {
 				pageBar += "<a class='active'>" + pageNo + "</a>";
 			} else {
-				pageBar += "<a href='/msg/leave/list.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType="
+				pageBar += "<a href='/leave/list.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType="
 						+ srchType + "'>" + pageNo + "</a>";
 			}
 			pageNo++;
@@ -95,7 +95,7 @@ public class LeaveController {
 		if (pageNo > totalPage) {
 			pageBar += "<a href=\"#\" class=\"arrow\">&raquo;</a>";
 		} else {
-			pageBar += "<a href='/msg/leave/list.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType=" + srchType
+			pageBar += "<a href='/leave/list.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType=" + srchType
 					+ "'>&raquo;</a>";
 		}
 		;
@@ -190,7 +190,7 @@ public class LeaveController {
 		if (pageNo == 1) {
 			pageBar += "<a href=\"#\" class=\"arrow\">&laquo;</a>";
 		} else {
-			pageBar += "<a href='/msg/leave/select.do?cPage=" + (pageNo - 1) + "&srchWord=" + srchWord + "&srchType="
+			pageBar += "<a href='/leave/select.do?cPage=" + (pageNo - 1) + "&srchWord=" + srchWord + "&srchType="
 					+ srchType + "'>&laquo;</a>";
 		}
 
@@ -198,7 +198,7 @@ public class LeaveController {
 			if (pageNo == cPage) {
 				pageBar += "<a class='active'>" + pageNo + "</a>";
 			} else {
-				pageBar += "<a href='/msg/leave/select.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType="
+				pageBar += "<a href='/leave/select.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType="
 						+ srchType + "'>" + pageNo + "</a>";
 			}
 			pageNo++;
@@ -207,7 +207,7 @@ public class LeaveController {
 		if (pageNo > totalPage) {
 			pageBar += "<a href=\"#\" class=\"arrow\">&raquo;</a>";
 		} else {
-			pageBar += "<a href='/msg/leave/select.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType="
+			pageBar += "<a href='/leave/select.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType="
 					+ srchType + "'>&raquo;</a>";
 		}
 		;
@@ -294,7 +294,7 @@ public class LeaveController {
 		if (pageNo == 1) {
 			pageBar += "<a href=\"#\" class=\"arrow\">&laquo;</a>";
 		} else {
-			pageBar += "<a href='/msg/leave/update.do?cPage=" + (pageNo - 1) + "&srchWord=" + srchWord + "&srchType="
+			pageBar += "<a href='/leave/update.do?cPage=" + (pageNo - 1) + "&srchWord=" + srchWord + "&srchType="
 					+ srchType + "'>&laquo;</a>";
 		}
 
@@ -302,7 +302,7 @@ public class LeaveController {
 			if (pageNo == cPage) {
 				pageBar += "<a class='active'>" + pageNo + "</a>";
 			} else {
-				pageBar += "<a href='/msg/leave/update.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType="
+				pageBar += "<a href='/leave/update.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType="
 						+ srchType + "'>" + pageNo + "</a>";
 			}
 			pageNo++;
@@ -311,7 +311,7 @@ public class LeaveController {
 		if (pageNo > totalPage) {
 			pageBar += "<a href=\"#\" class=\"arrow\">&raquo;</a>";
 		} else {
-			pageBar += "<a href='/msg/leave/update.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType=" + srchType
+			pageBar += "<a href='/leave/update.do?cPage=" + pageNo + "&srchWord=" + srchWord + "&srchType=" + srchType
 					+ "'>&raquo;</a>";
 		}
 		;

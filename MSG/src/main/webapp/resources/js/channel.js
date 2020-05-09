@@ -14,7 +14,7 @@ function channelMemberFunction() {
 	chNo = chjq("#inputChNo").val();
 	chjq.ajax({
 		type : "GET",
-		url : "/msg/chat/channelMember.do",
+		url : "/chat/channelMember.do",
 		dataType: "json",
 		data:{chNo: chNo},
 		success : function(data) {
@@ -32,12 +32,12 @@ function addChannelMember(empImage, regId, userId){
 //	console.log(empImage);
 	if(userId == regId){
 		hdjq("#channel-member-container").append('<a href="#">'
-				+'<img src="/msg/resources/image/king.svg" id="head">'
-				+'<img src="/msg/resources/upload/empImg/'+empImage+'" class="channel-member-img" id="head-aura">'
+				+'<img src="/resources/image/king.svg" id="head">'
+				+'<img src="/resources/upload/empImg/'+empImage+'" class="channel-member-img" id="head-aura">'
 				+'</a>');
 	}
 	else{
-		hdjq("#channel-member-container").append('<a href="#"><img src="/msg/resources/upload/empImg/'+empImage+'" class="channel-member-img" id="public"></a>');
+		hdjq("#channel-member-container").append('<a href="#"><img src="/resources/upload/empImg/'+empImage+'" class="channel-member-img" id="public"></a>');
 	}
 }
 
@@ -61,7 +61,7 @@ function channelFunction(type) {
 	chjq.ajax({
 		cache: false,
 		type : "post",
-		url : "/msg/chat/channelContent.do",
+		url : "/chat/channelContent.do",
 		data : {
 			userId : userId,
 			chNo : chNo,
@@ -123,7 +123,7 @@ function addChannelChat(userId, chatId, msgContent, msgTime, hrDate, hideDate, e
 	if(userId != chatId ){
 		chjq("#channel-container").append(
 									'<div id="channel-from-msg">'
-					                +'<img src="/msg/resources/upload/empImg/'+empImage+'" id="channel-from-msg-img" class="channel-member-img">'
+					                +'<img src="/resources/upload/empImg/'+empImage+'" id="channel-from-msg-img" class="channel-member-img">'
 					                +'<div id="channel-from-msg-content" class="channel-msg-content">'+msgContent
 					                +'<span id="channel-from-msg-time" class="channel-msg-time">'
 					                +msgTime
@@ -136,7 +136,7 @@ function addChannelChat(userId, chatId, msgContent, msgTime, hrDate, hideDate, e
 	}else{
 		chjq("#channel-container").append(
 									'<div id="channel-to-msg">'
-						            +'<img src="/msg/resources/upload/empImg/'+empImage+'" id="channel-to-msg-img" class="channel-member-img">'
+						            +'<img src="/resources/upload/empImg/'+empImage+'" id="channel-to-msg-img" class="channel-member-img">'
 						            +'<div id="channel-to-msg-content" class="channel-msg-content">'+msgContent
 						            +'<span id="channel-to-msg-time" class="channel-msg-time">'
 						            +msgTime
@@ -158,7 +158,7 @@ function channelSubmitFunction() {
 	var msgContent = chjq("#channel-send-msg-content").val();
 	chjq.ajax({
 		type : "POST",
-		url : "/msg/chat/channelMsgInsert.do",
+		url : "/chat/channelMsgInsert.do",
 		data : {
 			chNo : encodeURIComponent(chNo),
 			empNo : encodeURIComponent(empNo),
